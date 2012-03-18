@@ -1,0 +1,9 @@
+@relation inflated
+
+@attribute Color
+@attribute size
+@attribute act
+@attribute age
+@attribute inflated
+
+   

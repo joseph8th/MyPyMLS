@@ -1,0 +1,63 @@
+# Decision tree controller
+
+#from numpy import *
+from string import *
+import random
+import settings
+from dtl.models import *
+
+def _print_help():
+    print "Usage: mlearner [featureset.dat labelset.dat]"
+
+def load_data(fname):
+    f = open(settings.DATA_PATH + fname)
+    D = f.readlines()
+    f.close()
+    return D    
+
+def split_string(data):
+     return map(lambda x: x.split(), data)
+
+def format_records(data):
+    dl = [] 
+    for record in data:
+        dl.append(dict([ (col, record[col]) for col in range(len(record)) ]))
+    return dl
+
+
+def prefix(s, depth, ch):
+    return rjust(s, depth, ch)
+
+def print_tree(tree, depth):
+    if str(tree) == 'leaf':
+        print ">{}".format(prefix(str(tree.outcome), depth, "-"))
+    else:
+        for branch in tree:
+            print "|{}".format(prefix(str(branch), depth, "-"))
+            depth += 5
+            print_tree(tree[branch], depth)
+            depth -= 5
+
+
+def run_dtl(xfile, yfile):
+    X = split_string(load_data(xfile))
+    X = format_records(X)
+    Y = split_string(load_data(yfile))
+    Y = [r[0] for r in Y]
+    DT = DTree(X,Y)
+    DT.print_input()
+    tree = DT.build_dt(DT.X, DT.Y, DT.attributes)
+    print_tree(tree, 0)
+
+# Command-line controller methods
+def validate_argv(args):
+    return True
+
+if __name__ == "__main__":
+    import sys
+    if len(sys.argv) != 3:
+        _print_help()
+    else:
+        if validate_argv(sys.argv):
+            run_dtl(sys.argv[1], sys.argv[2])
+

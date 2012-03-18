@@ -1,0 +1,15 @@
+
+Loading data (X) from data1_X.dat, target (Y) from data1_Y.dat.
+
+=========================================================
+BUILDING DECISION TREE with TARGET ATTRIBUTE Y
+TOP TABLE: 20000.0 records
+	Found TARGET LABELS:  {'1': 11423, '0': 8577}
+	TOP ENTROPY:  (0.9853435250587089, {'1': 0.57115, '0': 0.42885})
+
+===============
+Unpruned Tree:
+
+
+11131 total nodes
+3711 leaf nodes

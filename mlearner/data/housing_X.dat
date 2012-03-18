@@ -1,0 +1,15 @@
+Date    District        House Type      Income  Previous_Customer
+3/10/03                 Suburban        Detached        High    No
+14/9/03                 Suburban        Detached        High    Responded
+2/4/02                  Rural           Detached        High    No
+18/1/03                 Urban           Semi-detached   High    No
+3/4/03                  Urban           Semi-detached   Low     No
+15/10/02                Urban           Semi-detached   Low     Responded
+15/10/02                Rural           Semi-detached   Low     Responded
+2/3/01                  Suburban        Terrace         High    No
+4/5/03                  Suburban        Semi-detached   Low     No
+2/1/03                  Urban           Terrace         Low     No
+3/10/03                 Suburban        Terrace         Low     Responded
+3/10/03                 Rural           Terrace         High    Responded
+8/4/03                  Rural           Detached        Low     No
+6/5/02                  Urban           Terrace         High    Responded

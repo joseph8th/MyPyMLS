@@ -1,0 +1,12 @@
+PACKAGE:
+        MLEARNER -- My basic machine learning project.
+
+AUTHOR:
+        Joseph Edwards <jee8th@unm.edu>
+        CS429 - Spring 2012 - UNM
+
+MODULES:
+        DTL -- My basic decision tree package.
+
+USAGE:
+        

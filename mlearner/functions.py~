@@ -1,0 +1,26 @@
+import random
+
+### On-the-fly data mutators
+
+def group_data(X, Y, W):
+    D = [X[ix].copy() for ix in range(len(X))]
+    for ix in range(len(X)):
+        D[ix][Y.keys()[0]] = Y.values()[0][ix]
+        D[ix]['weight'] = W[ix]
+    return D
+
+def ungroup_data(D, target):
+    X = [D[ix].copy() for ix in range(len(D))]
+    Y = {target : [X[ix].pop(target) for ix in range(len(X))]}
+    W = [X[ix].pop('weight') for ix in range(len(X))]
+    return (X, Y, W)
+
+
+# The n-fold split...
+def split_nfold(data, target, n):
+    D = [data[ix].copy() for ix in range(len(data))]
+    N = len(D)/n
+    random.shuffle(D)
+    D_test = D[:N]
+    D_train = D[N:]
+    return D_test, D_train

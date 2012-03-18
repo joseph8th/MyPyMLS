@@ -1,0 +1,108 @@
+
+Loading data from contact-lenses.arff.
+
+=========================================================
+BUILDING DECISION TREE with TARGET ATTRIBUTE contact-lenses
+TOP TABLE: 24.0 records
+	Found TARGET LABELS:  {'none': 15, 'hard': 4, 'soft': 5}
+	TOP ENTROPY:  (1.3260875253642983, {'none': 0.625, 'hard': 0.16666666666666666, 'soft': 0.20833333333333334})
+
+For ATTRIBUTE astigmatism ...
+24 records with val:count pairs:  {'yes': 12, 'no': 12}
+PARENT PROBs:  {'none': 0.625, 'hard': 0.16666666666666666, 'soft': 0.20833333333333334}
+PARENT ENTROPY:  1.32608752536
+GAIN:  0.377005230011
+
+For ATTRIBUTE tear-prod-rate ...
+24 records with val:count pairs:  {'reduced': 12, 'normal': 12}
+PARENT PROBs:  {'none': 0.625, 'hard': 0.16666666666666666, 'soft': 0.20833333333333334}
+PARENT ENTROPY:  1.32608752536
+GAIN:  0.548794940695
+
+For ATTRIBUTE age ...
+24 records with val:count pairs:  {'presbyopic': 8, 'pre-presbyopic': 8, 'young': 8}
+PARENT PROBs:  {'none': 0.625, 'hard': 0.16666666666666666, 'soft': 0.20833333333333334}
+PARENT ENTROPY:  1.32608752536
+GAIN:  0.0393965036461
+
+For ATTRIBUTE spectacle-prescrip ...
+24 records with val:count pairs:  {'hypermetrope': 12, 'myope': 12}
+PARENT PROBs:  {'none': 0.625, 'hard': 0.16666666666666666, 'soft': 0.20833333333333334}
+PARENT ENTROPY:  1.32608752536
+GAIN:  0.0395108354236
+
+==================
+>>> DECISION NODE:  {'attr': 'tear-prod-rate', 'gain': 0.5487949406953985}
+==================
+
+================
+>>> LEAF NODE:  {'count': 12, 'tab_len': 12, 'ratio': 1.0, 'value': 'none'}
+================
+
+For ATTRIBUTE astigmatism ...
+12 records with val:count pairs:  {'yes': 6, 'no': 6}
+PARENT PROBs:  {'none': 0.25, 'hard': 0.3333333333333333, 'soft': 0.4166666666666667}
+PARENT ENTROPY:  1.55458516934
+GAIN:  0.770426041486
+
+For ATTRIBUTE age ...
+12 records with val:count pairs:  {'presbyopic': 4, 'pre-presbyopic': 4, 'young': 4}
+PARENT PROBs:  {'none': 0.25, 'hard': 0.3333333333333333, 'soft': 0.4166666666666667}
+PARENT ENTROPY:  1.55458516934
+GAIN:  0.221251836004
+
+For ATTRIBUTE spectacle-prescrip ...
+12 records with val:count pairs:  {'hypermetrope': 6, 'myope': 6}
+PARENT PROBs:  {'none': 0.25, 'hard': 0.3333333333333333, 'soft': 0.4166666666666667}
+PARENT ENTROPY:  1.55458516934
+GAIN:  0.0954372523106
+
+==================
+>>> DECISION NODE:  {'attr': 'astigmatism', 'gain': 0.7704260414863778}
+==================
+
+For ATTRIBUTE age ...
+6 records with val:count pairs:  {'presbyopic': 2, 'pre-presbyopic': 2, 'young': 2}
+PARENT PROBs:  {'none': 0.3333333333333333, 'hard': 0.6666666666666666}
+PARENT ENTROPY:  0.918295834054
+GAIN:  0.251629167388
+
+For ATTRIBUTE spectacle-prescrip ...
+6 records with val:count pairs:  {'hypermetrope': 3, 'myope': 3}
+PARENT PROBs:  {'none': 0.3333333333333333, 'hard': 0.6666666666666666}
+PARENT ENTROPY:  0.918295834054
+GAIN:  0.459147917027
+
+==================
+>>> DECISION NODE:  {'attr': 'spectacle-prescrip', 'gain': 0.4591479170272448}
+==================
+
+===============
+Unpruned Tree:
+
+tear-prod-rate = reduced (0.548794940695) 
+|    \----> none (12/12)
+tear-prod-rate = normal (0.548794940695) 
+|    astigmatism = yes (0.770426041486) 
+|    |    spectacle-prescrip = hypermetrope (0.459147917027) 
+|    |    |    age = presbyopic (0.918295834054) 
+|    |    |    |    \----> none (1/1)
+|    |    |    age = pre-presbyopic (0.918295834054) 
+|    |    |    |    \----> none (1/1)
+|    |    |    age = young (0.918295834054) 
+|    |    |    |    \----> hard (1/1)
+|    |    spectacle-prescrip = myope (0.459147917027) 
+|    |    |    \----> hard (3/3)
+|    astigmatism = no (0.770426041486) 
+|    |    age = presbyopic (0.316689088315) 
+|    |    |    spectacle-prescrip = hypermetrope (1.0) 
+|    |    |    |    \----> soft (1/1)
+|    |    |    spectacle-prescrip = myope (1.0) 
+|    |    |    |    \----> none (1/1)
+|    |    age = pre-presbyopic (0.316689088315) 
+|    |    |    \----> soft (2/2)
+|    |    age = young (0.316689088315) 
+|    |    |    \----> soft (2/2)
+
+23 total nodes
+9 leaf nodes

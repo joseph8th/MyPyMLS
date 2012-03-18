@@ -1,0 +1,65 @@
+
+Loading data (X) from data0_X.dat, target (Y) from data0_Y.dat.
+
+=========================================================
+BUILDING DECISION TREE with TARGET ATTRIBUTE Y
+TOP TABLE: 32.0 records
+	Found TARGET LABELS:  {'1': 23, '0': 9}
+	TOP ENTROPY:  (0.8571484374283718, {'1': 0.71875, '0': 0.28125})
+
+For ATTRIBUTE A1 ...
+32 records with val:count pairs:  {'1': 24, '0': 8}
+PARENT PROBs:  {'1': 0.71875, '0': 0.28125}
+PARENT ENTROPY:  0.857148437428
+GAIN:  0.0534347878208
+
+For ATTRIBUTE A0 ...
+32 records with val:count pairs:  {'1': 15, '0': 17}
+PARENT PROBs:  {'1': 0.71875, '0': 0.28125}
+PARENT ENTROPY:  0.857148437428
+GAIN:  0.00853626629591
+
+For ATTRIBUTE A3 ...
+32 records with val:count pairs:  {'1': 15, '0': 17}
+PARENT PROBs:  {'1': 0.71875, '0': 0.28125}
+PARENT ENTROPY:  0.857148437428
+GAIN:  0.0723438906699
+
+For ATTRIBUTE A2 ...
+32 records with val:count pairs:  {'1': 12, '0': 20}
+PARENT PROBs:  {'1': 0.71875, '0': 0.28125}
+PARENT ENTROPY:  0.857148437428
+GAIN:  0.0384925943796
+
+For ATTRIBUTE A5 ...
+32 records with val:count pairs:  {'1': 25, '0': 7}
+PARENT PROBs:  {'1': 0.71875, '0': 0.28125}
+PARENT ENTROPY:  0.857148437428
+GAIN:  0.314156841108
+
+For ATTRIBUTE A4 ...
+32 records with val:count pairs:  {'1': 12, '0': 20}
+PARENT PROBs:  {'1': 0.71875, '0': 0.28125}
+PARENT ENTROPY:  0.857148437428
+GAIN:  0.00211232873701
+
+==================
+>>> DECISION NODE:  {'attr': 'A5', 'gain': 0.31415684110773423}
+==================
+
+===============
+Pruned Tree (by gain < 0.00244:
+
+A5 = 1 (0.314156841108) 
+|    A0 = 1 (0.124098949895) 
+|    |    \----> 1 (10/13)
+|    A0 = 0 (0.124098949895) 
+|    |    \----> 1 (12/12)
+A5 = 0 (0.314156841108) 
+|    A3 = 1 (0.591672778582) 
+|    |    \----> 1 (1/1)
+|    A3 = 0 (0.591672778582) 
+|    |    \----> 0 (6/6)
+
+10 total nodes
+4 leaf nodes

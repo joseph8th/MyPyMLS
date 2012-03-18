@@ -1,0 +1,63 @@
+from functions import *
+import numpy as np
+
+"""
+AdaBoost controller class
+"""
+class AdaControl:
+
+    def run_ada(self, data_loader, learn_con):
+        X, Y, W = data_loader.get_XYW()
+        D = group_data(X, Y, W)
+        boost = AdaBoost(learn_con)
+        ada_model = boost.ada_train(D, Y.keys()[0], learn_con.sett['ada_iter'])
+        print ada_model
+
+"""
+AdaBoost model class
+"""
+class AdaBoost:
+    def __init__(self, learn_con):
+        self.learner = learn_con
+
+    def ada_train(self, D_trn, target, iter_n):
+
+        ada_model = {'weights': np.zeros_like(np.arange(iter_n)), 'trn_model': []}
+        X_trn, Y_trn, W_trn = ungroup_data(D_trn, target)
+        Y_ary = np.array(Y_trn.values()[0])
+
+        W_t = np.array(W_trn)/float(len(W_trn))
+        D_trn = group_data(X_trn, Y_trn, list(W_t))
+
+        for t in range(iter_n):
+            trn_model = self.learner.train(D_trn, target)
+            ada_model['trn_model'].append(trn_model)
+            test_results = self.learner.test(trn_model, D_tst, D_trn, target)
+
+            accu_l = np.array(test_results['is_correct'])
+            for ix in range(len(accu_l)):
+                if accu_l[ix] == True:
+                    accu_l[ix] = 0
+                else:
+                    accu_l[ix] = W_t[ix]
+
+            err_eps = test_results['err_rate']
+            weight = log((1.0 - err_eps)/err_eps)
+            ada_model['weights'].append(weight)
+
+            
+
+            print results
+            print err_eps
+
+        return ada_model
+
+    def ada_test(self, ada_model, D_tst, D_trn, target):
+        X_tst, Y_tst, W_tst = ungroup_data(D_tst, target)
+        W_t = list(np.ones(len(W_tst)))
+        D_t = group_data(X_tst, Y_tst, W_t)
+#        X_trn, Y_trn, W_trn = ungroup_data(D_trn, target)
+
+        for ix in range(len(ada_model['weights'])):
+            test_results = self.learner.test(ada_model['trn_model'], D_t, D_trn, target)
+            

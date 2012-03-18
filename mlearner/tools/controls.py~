@@ -1,0 +1,17 @@
+# Tool controller for studying mach. learnin'
+
+class ToolControl:
+    def __init__(self, sett):
+        self.sett = sett
+
+    def run_tool(self):
+        if self.sett['tool'] = '1':
+            sigma_l = [0.01, 0.10, 0.25, 0.5, 1.0]
+            x = np.zeros(sett['dim'])
+            y = np.zeros(sett['dim'])
+            x[0] = 1.0
+            v = NoiseVector(sett['mu'], sigma_l, sett['dim'])
+            v.set_xy(x,y)
+            v.gset_mean_rdist(sett['n'])
+            v.plot_view()
+            

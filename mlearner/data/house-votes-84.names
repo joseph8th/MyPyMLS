@@ -1,0 +1,19 @@
+@relation party-affiliation
+
+@attribute party-affiliation
+@attribute handicapped-infants
+@attribute water-project-cost-sharing
+@attribute adoption-of-the-budget-resolution
+@attribute physician-fee-freeze
+@attribute el-salvador-aid
+@attribute religious-groups-in-schools
+@attribute anti-satellite-test-ban
+@attribute aid-to-nicaraguan-contras
+@attribute mx-missile
+@attribute immigration
+@attribute synfuels-corporation-cutback
+@attribute education-spending
+@attribute superfund-right-to-sue
+@attribute crime
+@attribute duty-free-exports
+@attribute export-administration-act-south-africa

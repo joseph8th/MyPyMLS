@@ -1,0 +1,12 @@
+@relation pos-neg
+
+@attribute pos-neg
+@attribute top-left-square
+@attribute top-middle-square
+@attribute top-right-square
+@attribute middle-left-square
+@attribute middle-middle-square
+@attribute middle-right-square
+@attribute bottom-left-square
+@attribute bottom-middle-square
+@attribute bottom-right-square

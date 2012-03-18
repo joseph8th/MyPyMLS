@@ -1,0 +1,29 @@
+# Decision tree controller
+
+import mlearner.settings
+from mlearner.dtl.models import *
+
+# Command-line controller
+if __name__ == "__main__":
+    import sys
+    if len(sys.argv) != 0:
+        _print_help()
+    else:
+        xfile = sys.argv[0]
+        yfile = sys.argv[1]
+        # validate here, sometime
+        X = _load_data(xfile)
+        X = map(lambda x: x.split(), X)
+        Y = _load_data(yfile)
+        DT = DTree(X,Y)
+        DT.print_results()
+
+def _load_data(fname):
+    f = open(DATA_PATH + fname)
+    D = readlines()
+    f.close()
+    return D    
+
+def _print_help():
+    print "Usage: mlearner [featurefile labelfile]"
+

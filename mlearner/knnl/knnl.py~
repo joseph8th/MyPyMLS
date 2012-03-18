@@ -1,0 +1,26 @@
+import numpy as np
+from scipy.spatial import distance as dist
+
+# K-Nearest Neighbor Learner
+
+class KNNControl:
+    def __init__(self, sett):
+        self.sett = sett
+
+        # Default settings for DT control in settings.py
+        if 'verb' not in sett:
+            sett['verb'] = DEF_DT_VERB
+        if 'knn_k' not in sett:
+            sett['knn_k'] = DEF_KNN_K
+
+    def run_knnl(self):
+        pass
+
+
+class KNNLearner:
+
+    def train(self, D_trn, target):
+        pass
+
+    def test(self, D_tst, D_trn, target):
+        pass

@@ -1,0 +1,15 @@
+District        House Type      Income  Previous_Customer
+Suburban        Detached        High    No
+Suburban        Detached        High    Responded
+Rural           Detached        High    No
+Urban           Semi-detached   High    No
+Urban           Semi-detached   Low     No
+Urban           Semi-detached   Low     Responded
+Rural           Semi-detached   Low     Responded
+Suburban        Terrace         High    No
+Suburban        Semi-detached   Low     No
+Urban           Terrace         Low     No
+Suburban        Terrace         Low     Responded
+Rural           Terrace         High    Responded
+Rural           Detached        Low     No
+Urban           Terrace         High    Responded
