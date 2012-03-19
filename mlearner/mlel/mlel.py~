@@ -1,0 +1,28 @@
+import numpy as np
+
+"""
+Joseph Edwards - CS 429 UNM Sp2012
+My maximum likelihood estimate learner for the mean and covariance matrix of a Guassian
+distribution in arbitrary dimensional space.
+"""
+
+class MLELControl:
+    def __init__(self, sett):
+        self.sett = sett
+
+        # Default settings for DT control in settings.py
+        if 'verb' not in sett:
+            self.sett['verb'] = DEF_DT_VERB
+
+    def reset(self):
+        pass
+
+    def train(self):
+        pass
+
+    def test(self):
+        pass
+
+    def run_mlel(self, dataloader):
+        X,Y,W = dataloader.get_XYW()
+        
