@@ -1,7 +1,12 @@
+import sys
 import random
 
-### On-the-fly data mutators
+### Global error handler
+def print_err(msg):
+    print >> sys.stderr, msg
 
+
+### On-the-fly data mutators
 def group_data(X, Y, W):
     D = [X[ix].copy() for ix in range(len(X))]
 

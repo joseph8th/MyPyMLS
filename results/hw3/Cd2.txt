@@ -1,0 +1,6 @@
+
+Loading data (X) from hw3/part_C_d=2_X.dat, target (Y) from hw3/part_C_d=2_Y.dat.
+
+========= REPORT: MAXIMUM LIKELIHOOD ESTIMATOR =========
+Mean (Mu) vector (<6 elts):  [ 6.10430598  1.03773653]
+Eigenvals of covariant matrix (Sigma):  [ 18.82778695  65.18477075]

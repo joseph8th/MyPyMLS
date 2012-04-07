@@ -1,5 +1,6 @@
 from dtl.controls import *
 from knnl.knnl import *
+from mlel.mlel import *
 from tools.controls import *
 from tools.adaboost import *
 
@@ -176,6 +177,21 @@ def _get_knnl_sett(sa, sett):
         i += 1
     return sett
 
+
+# Get settings for max likelihood estimator
+def _get_mlel_sett(sa, sett):
+    sett['pkg'] = 'mle'
+    l = len(sa)
+    i = 0
+    while i < l:
+        if sa[i] in ['-p', '--plot']:
+            sett['plot'] = True
+        if sa[i] in ['-e', '--errs']:
+            sett['errs'] = True
+        i += 1
+    return sett
+
+
 # Get settings for any aux. tools
 def _get_tool_sett(sa):
     sett = {}
@@ -210,6 +226,9 @@ def _get_settings(args):
         elif sa[0] == '--knn':
             sett = _get_file_sett(sa[1:])
             return _get_knnl_sett(sa[1:], _get_mlopt_sett(sa[1:], sett))
+        elif sa[0] == '--mle':
+            sett = _get_file_sett(sa[1:])
+            return _get_mlel_sett(sa[1:], _get_mlopt_sett(sa[1:], sett))
         elif sa[0] == '--tool':
             return _get_tool_sett(sa[1:])
         else:
@@ -243,6 +262,11 @@ if __name__ == "__main__":
             else:
                 ada_con = AdaControl()
                 ada_con.run_ada(dl, knn_con)
+
+        elif run_sett['pkg'] == 'mle':
+            dl = DataLoader(run_sett)
+            mle_con = MLEControl(run_sett)
+            mle_con.run_mlel(dl)
 
         # Extra tools and stuff
         elif run_sett['pkg'] == 'tool':

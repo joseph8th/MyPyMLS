@@ -1,3 +1,4 @@
+from functions import *
 from settings import *
 from string import *
 
@@ -32,12 +33,16 @@ class DataLoader:
 
     # Load file from disk
     def _load_data(self, fname):
-        f = open(DATA_PATH + fname)
-        D = f.readlines()
-        f.close()
-        if self.sett['verb'] < -2:
-            print "\nLoaded {}:\n=================\n".format(fname), D
-        return D
+        try:
+            f = open(DATA_PATH + fname)
+            D = f.readlines()
+            f.close()
+            if self.sett['verb'] < -2:
+                print "\nLoaded {}:\n=================\n".format(fname), D
+            return D
+        except IOError:
+            print_err("IOError: {} not found.".format(fname))
+            exit(1)
 
     # Load and format data table and label vector from separate '.dat' files
     # NOTE: change variables 'labels' here to 'names' or something ...
